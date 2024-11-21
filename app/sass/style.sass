@@ -25,6 +25,7 @@ body *
     font-size: 32px
     margin-bottom: 10px
     font-weight: 700
+    color: var(--tg-theme-text-color)
 //end global style
 
 //start stories list style
@@ -33,6 +34,7 @@ body *
     flex-wrap: wrap
     justify-content: space-between
     margin-top: 20px
+    padding-bottom: 80px
 .stories__item
     width: 48%
     margin-bottom: 35px
@@ -75,13 +77,14 @@ body *
     width: 8px
     min-width: 8px
     height: 8px 
-    background: #017df8
+    background: var(--tg-theme-button-color)
     display: block
     border-radius: 50% 
     margin-right: 5px
 .comments__content
     display: flex 
     align-items: center
+    color: var(--tg-theme-button-color)
 
 //end stories list style
 //start comments block style
@@ -112,6 +115,7 @@ body *
   max-height: 45px 
   overflow: hidden
   line-height: 1.5
+  color: var(--tg-theme-hint-color)
 
 .photo-profile
   //padding: 2px 
@@ -130,6 +134,8 @@ body *
   position: absolute
   transform: translateX(-2px) translateY(-2px)
   box-sizing: border-box
+.photo-profile.offline:after
+  background: #A5A6A7
 .user-info__sub-title
   color: var(--tg-theme-hint-color)
   font-weight: 400
@@ -158,7 +164,7 @@ body *
   .user-info__text
     max-height: 10vw
 .user-info__content
-  border-bottom: 1px solid #E8E7E7
+  border-bottom: 1px solid rgba(#000, .2)
   min-height: 75px
   display: flex 
   flex-direction: column
@@ -262,7 +268,7 @@ body *
   .user-info__text
     max-height: 10vw
 .user-info__content
-  border-bottom: 1px solid #E8E7E7
+  border-bottom: 1px solid rgba(#000, .2)
   min-height: 75px
   display: flex 
   flex-direction: column
@@ -296,8 +302,6 @@ textarea
   margin-top: 20px 
   background: var(--tg-theme-button-color)
   color: var(--tg-theme-button-text-color)
-  background: #017df8 //test color
-  color: #fff //test color
   text-decoration: none
   display: flex 
   justify-content: center 
@@ -307,7 +311,7 @@ textarea
   font-size: 20px 
   font-weight: 600
 .button:hover 
-  color: #fff
+  color: var(--tg-theme-button-text-color)
 .photo-profile--big:after
   width: 20px 
   height: 20px
@@ -341,6 +345,7 @@ textarea
   font-size: 28px 
   font-weight: 700
   margin-bottom: 10px
+  color: #000
 .modal-sub-title
   font-size: 16px
 .modal-img
@@ -883,7 +888,7 @@ label
     display: flex 
     justify-content: center 
     align-items: center
-    color: #017df8 
+    color: var(--tg-theme-button-color) 
     font-weight: 600
     text-decoration: none
     img
@@ -1200,8 +1205,9 @@ swiper-slide
   transform: translateX(-50%)
   z-index: 999
   display: none
-  img 
+  svg
     width: 20px
+    fill: var(--tg-theme-text-color)
 //end back-button style
 .matches-wrapper
   padding-top: 20px
@@ -1216,6 +1222,9 @@ swiper-slide
 .back-button
     width: 20px
     margin-right: 10px
+    color: var(--tg-theme-text-color)
+svg.back-button
+  fill: var(--tg-theme-text-color)
 .photo-profile--blocked
     width: 60px 
     height: 60px 
@@ -1294,15 +1303,40 @@ swiper-slide
     margin-left: 10px
 .button--fixed
   position: fixed 
-  bottom: 10px 
+  bottom: calc(100% - var(--tg-viewport-stable-height))
   z-index: 999
   left: 50% 
   transform: translateX(-50%)
   width: 650px 
-  max-width: 90vw
+  max-width: 100vw
+  transition: all .1s
+  padding-top: 15px 
+  padding-bottom: 15px
+  background-color: var(--tg-theme-bg-color)
+  .button 
+    width: 90%
+    margin-left: auto 
+    margin-right: auto
+    margin-top: 0
   img 
     width: 20px 
     margin-left: 10px
+.profile-block 
+  display: none
+.profile-block
+  width: 100%
+  min-height: 100vh
+  border: none
+  margin: 0 
+  padding: 0
+  position: fixed
+  top: 0
+  left: 0 
+  z-index: 999 
+  overflow-y: auto
+// .stories-wrapper
+//   height: calc(var(--tg-viewport-height) - 120px)
+//   overflow-y: auto
 @import "media"
 
 
